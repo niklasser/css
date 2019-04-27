@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form>
+        <div id=support></div>
+        <b>Record:</b>
+        <br>
+        <label class="switch">
+            <input type="checkbox" onclick="toggleListener()">
+            <span class="slider round"></span>
+        </label>
+        <br>
+        <div id=not_recording>Not recording</div>
+        <div id=recording hidden=true>Recording..</div>
+        <div id=eventcounter></div>
+        <div id=eventx></div>
+        <div id=eventy></div>
+        <div id=eventz></div>
+    </form>
+
+</body>
+
+</html>
+<script type="text/javascript">
+    if (window.DeviceMotionEvent) {
+        document.getElementById("support").innerHTML = "Device Motion is supported"
+    } else {
+        document.getElementById("support").innerHTML = "DeviceMotion is not supported"
+    }
+
+    var recording = 0;
+    var events = 0;
+    var eventcounter = document.getElementById("eventcounter");
+
+    function toggleListener() {
+        if (recording == 0) { //Start recording
+            document.getElementById("not_recording").hidden = true;
+            document.getElementById("recording").hidden = false;
+            recording = 1;
+            eventcounter.innerHTML = "Event: " + events;
+            if (window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', onMotion);
+            }
+        } else { //Stop recording
+            document.getElementById("not_recording").hidden = false;
+            document.getElementById("recording").hidden = true;
+            recording = 0;
+            events = 0;
+            eventcounter.innerHTML = "Event: " + events;
+            window.removeEventListener("devicemotion", window)
+        }
+    }
+
+    function onMotion(event) {
+        events++;
+        eventcounter.innerHTML = "Event: " + events;
+
+        var x = event.accelerationIncludingGravity.x;
+        var y = event.accelerationIncludingGravity.y;
+        var z = event.accelerationIncludingGravity.z;
+
+        document.getElementById("eventx").innerText = "X: " + x;
+        document.getElementById("eventy").innerText = "Y: " + y;
+        document.getElementById("eventz").innerText = "Z: " + z;
+        return;
+    }
+</script>
