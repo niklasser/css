@@ -1,0 +1,1 @@
+curl -X PUT --data-binary @css18.pmml -H "Content-type: text/xml" http://localhost:8080/openscoring/model/css18

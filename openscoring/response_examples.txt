@@ -1,0 +1,27 @@
+java -cp openscoring-client.jar org.openscoring.client.Deployer --model http://localhost:8080/openscoring/model/0 --file css18.pmml
+
+
+
+
+{
+  "responses" : [ {
+    "id" : "0",
+    "miningFunction" : "classification",
+    "summary" : "Support vector machine",
+    "properties" : {
+      "created.timestamp" : "2018-09-04T12:43:09.216+0000",
+      "accessed.timestamp" : null,
+      "file.size" : 5043,
+      "file.md5sum" : "cb86af10a16ebc7b4f1ebc8c88745e17"
+    }
+  } ]
+}
+
+
+{
+  "id" : "record-001",
+  "result" : {
+    "tracking.context" : 1
+  }
+}
+

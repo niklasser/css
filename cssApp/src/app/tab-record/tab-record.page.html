@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Record Context Data
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Record new contexts</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="primary">Label</ion-label>
+        <ion-select [(ngModel)]="label" placeholder="Select label">
+          <ion-select-option value="test">Test</ion-select-option>
+          <ion-select-option value="walking">Walking</ion-select-option>
+          <ion-select-option value="standing">Standing</ion-select-option>
+          <ion-select-option value="jumping">Jumping</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label  color="primary">Recording name</ion-label>
+        <ion-input [(ngModel)]="record_name" placeholder="Enter Input"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)=startRecording()>{{recordingButtonText}}</ion-button>
+    </ion-list>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Current data</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="primary">Collected events</ion-label>
+        {{events}}
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">X</ion-label>
+        {{motion.X}}
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Y</ion-label>
+        {{motion.Y}}
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Z</ion-label>
+        {{motion.Z}}
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Timestamp</ion-label>
+        {{motion.timestamp}}
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>InfluxDB Server</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="primary">IP</ion-label>
+        <ion-input [(ngModel)]="influx_ip" placeholder="127.0.0.1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Port</ion-label>
+        <ion-input [(ngModel)]="influx_port" placeholder="8086"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)=updateURL()>Save Settings</ion-button>
+    </ion-list>
+  </div>
+
+</ion-content>

@@ -1,0 +1,2482 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" 
+	xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.3">
+	<Header>
+		<Application name="css" version="1.5.13"/>
+		<Timestamp>2019-05-02T12:26:32Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="label" optype="categorical" dataType="integer">
+			<Value value="0"/>
+			<Value value="1"/>
+		</DataField>
+		<DataField name="x" optype="continuous" dataType="float"/>
+		<DataField name="y" optype="continuous" dataType="float"/>
+		<DataField name="z" optype="continuous" dataType="float"/>
+	</DataDictionary>
+	<TransformationDictionary>
+		<DerivedField name="double(z)" optype="continuous" dataType="double">
+			<FieldRef field="z"/>
+		</DerivedField>
+		<DerivedField name="double(x)" optype="continuous" dataType="double">
+			<FieldRef field="x"/>
+		</DerivedField>
+		<DerivedField name="double(y)" optype="continuous" dataType="double">
+			<FieldRef field="y"/>
+		</DerivedField>
+	</TransformationDictionary>
+	<MiningModel functionName="classification">
+		<MiningSchema>
+			<MiningField name="label" usageType="target"/>
+			<MiningField name="x"/>
+			<MiningField name="y"/>
+			<MiningField name="z"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability(0)" optype="continuous" dataType="double" feature="probability" value="0"/>
+			<OutputField name="probability(1)" optype="continuous" dataType="double" feature="probability" value="1"/>
+		</Output>
+		<Segmentation multipleModelMethod="average">
+			<Segment id="1">
+				<True/>
+				<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+					<MiningSchema>
+						<MiningField name="z"/>
+						<MiningField name="x"/>
+						<MiningField name="y"/>
+					</MiningSchema>
+					<Node>
+						<True/>
+						<Node>
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="5.982983589172363"/>
+							<Node score="0" recordCount="599.0">
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.8818559646606445"/>
+								<ScoreDistribution value="0" recordCount="599.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="0" recordCount="4.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="3.0"/>
+								<ScoreDistribution value="1" recordCount="1.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1613599061965942"/>
+							<Node score="1" recordCount="619.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1116633415222168"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="619.0"/>
+							</Node>
+							<Node score="0" recordCount="1.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1154804229736328"/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.05396278202533722"/>
+								<Node score="1" recordCount="2.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.520427703857422"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="2.0"/>
+								</Node>
+								<Node score="0" recordCount="4.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="4.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="35.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="35.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.626256942749023"/>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.06331832706928253"/>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.419761657714844"/>
+									<Node score="1" recordCount="6.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3314063549041748"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="6.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.2697390913963318"/>
+										<Node score="1" recordCount="2.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="7.563621520996094"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.202787399291992"/>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.450002670288086"/>
+												<Node score="0" recordCount="1.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="-1.1180250644683838"/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="3.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="5.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.051118697971105576"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="5.0"/>
+									</Node>
+									<Node score="1" recordCount="3.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.353448867797852"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="3.0"/>
+									</Node>
+									<Node score="0" recordCount="2.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.588086128234863"/>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4323713779449463"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="0" recordCount="13.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="13.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.608668327331543"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.2891986072063446"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2817096710205078"/>
+								<Node score="1" recordCount="13.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.57903003692627"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="13.0"/>
+								</Node>
+								<Node score="0" recordCount="2.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="219.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="219.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.93925666809082"/>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.784253120422363"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.4542304277420044"/>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.31689101457595825"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.0323238372802734"/>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.0651145949959755"/>
+											<Node score="0" recordCount="16.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.06608757376670837"/>
+												<ScoreDistribution value="0" recordCount="16.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="3.0"/>
+											</Node>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8986517190933228"/>
+											<Node score="0" recordCount="78.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4556479454040527"/>
+												<ScoreDistribution value="0" recordCount="78.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.664129257202148"/>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.16084054112434387"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6132701635360718"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+												<Node score="0" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.01743873581290245"/>
+												<Node score="0" recordCount="5.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.028515702113509178"/>
+													<ScoreDistribution value="0" recordCount="5.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="24.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.13913565874099731"/>
+												<ScoreDistribution value="0" recordCount="24.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4736855030059814"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node score="0" recordCount="18.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="18.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.699230194091797"/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.16847465932369232"/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="48.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="48.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.879829406738281"/>
+								<Node score="0" recordCount="405.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.25671616196632385"/>
+									<ScoreDistribution value="0" recordCount="405.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.35154396295547485"/>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.83207893371582"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="21.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="21.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.934017181396484"/>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4343173503875732"/>
+									<Node>
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.910440444946289"/>
+										<Node score="0" recordCount="19.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.895622253417969"/>
+											<ScoreDistribution value="0" recordCount="19.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.896295547485352"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+										<Node score="0" recordCount="11.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="11.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="3.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.91148853302002"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="3.0"/>
+									</Node>
+									<Node score="0" recordCount="4.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.921892166137695"/>
+										<ScoreDistribution value="0" recordCount="4.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.2389031946659088"/>
+										<Node score="1" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.4834197163581848"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="2.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="2.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6551082134246826"/>
+									<Node score="1" recordCount="4.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5855028629302979"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="4.0"/>
+									</Node>
+									<Node score="0" recordCount="3.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.909692764282227"/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="3.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="3.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="11.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="11.0"/>
+								</Node>
+							</Node>
+							<Node score="0" recordCount="6.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="6.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.05598358064889908"/>
+							<Node score="1" recordCount="8.0">
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.19826270639896393"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="8.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.314974784851074"/>
+								<Node score="0" recordCount="9.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.282832384109497"/>
+									<ScoreDistribution value="0" recordCount="9.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.48917818069458"/>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.14145584404468536"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3314063549041748"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="1" recordCount="2.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.970690727233887"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="2.0"/>
+									</Node>
+									<Node score="0" recordCount="2.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4239888191223145"/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="2.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.1396595686674118"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="2.0"/>
+								</Node>
+								<Node score="0" recordCount="8.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="8.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="8.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="8.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5837814807891846"/>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.536629557609558"/>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.963430404663086"/>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.95182991027832"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="81.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="81.0"/>
+								</Node>
+							</Node>
+							<Node score="0" recordCount="3.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5390245914459229"/>
+								<ScoreDistribution value="0" recordCount="3.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.16962718963623"/>
+								<Node score="1" recordCount="3.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.56851327419281"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="3.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="6.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="6.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.0031344890594482"/>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.5009332895278931"/>
+								<Node score="1" recordCount="15.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.881921768188477"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="15.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.4033362567424774"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="30.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="30.0"/>
+							</Node>
+						</Node>
+						<Node score="1" recordCount="85.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="0.0"/>
+							<ScoreDistribution value="1" recordCount="85.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="2">
+				<True/>
+				<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+					<MiningSchema>
+						<MiningField name="z"/>
+						<MiningField name="x"/>
+						<MiningField name="y"/>
+					</MiningSchema>
+					<Node>
+						<True/>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="6.190601825714111"/>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.920320510864258"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.26689499616622925"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.14774276316165924"/>
+										<Node score="0" recordCount="2.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-1.3564791679382324"/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="58.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1229647397994995"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="58.0"/>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2129276990890503"/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="10.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.3106789290904999"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="10.0"/>
+										</Node>
+										<Node score="1" recordCount="4.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.998163223266602"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="4.0"/>
+										</Node>
+										<Node score="0" recordCount="4.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.242380142211914"/>
+											<ScoreDistribution value="0" recordCount="4.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.18583855032920837"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="3.0"/>
+										</Node>
+										<Node score="0" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.16645385324954987"/>
+											<ScoreDistribution value="0" recordCount="3.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1109148263931274"/>
+										<Node score="1" recordCount="51.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.9622739553451538"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="51.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.02948867902159691"/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="9.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="9.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.568851470947266"/>
+										<Node score="1" recordCount="15.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.201366424560547"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="15.0"/>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6137940883636475"/>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.252708435058594"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.50261402130127"/>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.01743873581290245"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="2.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2103081941604614"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+												<Node score="0" recordCount="1.0">
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.318572044372559"/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="0" recordCount="1.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2999716997146606"/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="2.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="2.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="10.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8180444240570068"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="10.0"/>
+										</Node>
+										<Node score="0" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.029788056388497353"/>
+											<ScoreDistribution value="0" recordCount="3.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.06331832706928253"/>
+											<Node score="1" recordCount="2.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.05104385316371918"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="2.0"/>
+											</Node>
+											<Node score="0" recordCount="2.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="2.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="3.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="3.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.9021694660186768"/>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.08382568508386612"/>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.895622253417969"/>
+												<Node>
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.782756805419922"/>
+													<Node>
+														<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.457369327545166"/>
+														<Node score="0" recordCount="108.0">
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.782232284545898"/>
+															<ScoreDistribution value="0" recordCount="108.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+														<Node score="1" recordCount="1.0">
+															<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3237721920013428"/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="1.0"/>
+														</Node>
+														<Node score="0" recordCount="2.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="2.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+													</Node>
+													<Node>
+														<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.01743873581290245"/>
+														<Node score="1" recordCount="1.0">
+															<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4704670906066895"/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="1.0"/>
+														</Node>
+														<Node score="0" recordCount="8.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="8.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+													</Node>
+													<Node score="0" recordCount="11.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="11.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node score="0" recordCount="357.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="357.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2284953594207764"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node score="0" recordCount="9.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="9.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5602054595947266"/>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.21330642700195312"/>
+												<Node score="1" recordCount="2.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.0896635502576828"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+												<Node score="0" recordCount="2.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.09886939823627472"/>
+													<ScoreDistribution value="0" recordCount="2.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node>
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.718839645385742"/>
+													<Node score="1" recordCount="1.0">
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.66165828704834"/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="1.0"/>
+													</Node>
+													<Node score="0" recordCount="1.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="1.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node score="1" recordCount="2.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="3.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="38.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="38.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="6.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.912872076034546"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="6.0"/>
+									</Node>
+									<Node score="0" recordCount="3.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.0334463119506836"/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="6.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="4.719879150390625"/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="4.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.37085381150245667"/>
+									<Node score="1" recordCount="12.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3129197359085083"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="12.0"/>
+									</Node>
+									<Node score="1" recordCount="5.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.580751419067383"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="5.0"/>
+									</Node>
+									<Node score="0" recordCount="5.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="5.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.905126571655273"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.4583468437194824"/>
+										<Node score="1" recordCount="18.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6417858600616455"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="18.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.4385879635810852"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="481.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="481.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="3.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.497485876083374"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="3.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.99509048461914"/>
+								<Node score="1" recordCount="27.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1597133874893188"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="27.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5492782592773438"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.21398001909255981"/>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.405502200126648"/>
+											<Node score="0" recordCount="2.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1761791706085205"/>
+												<ScoreDistribution value="0" recordCount="2.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.946216583251953"/>
+												<Node score="1" recordCount="2.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.43746528029441833"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+												<Node score="0" recordCount="3.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="3.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="8.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="8.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="14.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="14.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6991167068481445"/>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.05890250951051712"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="4.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="4.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="17.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="17.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="304.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1609108448028564"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="304.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.1196761280298233"/>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4025084972381592"/>
+									<Node score="0" recordCount="3.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.134525299072266"/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="4.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="4.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="17.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="17.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="212.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="212.0"/>
+							</Node>
+						</Node>
+						<Node score="0" recordCount="605.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="605.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="3">
+				<True/>
+				<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+					<MiningSchema>
+						<MiningField name="z"/>
+						<MiningField name="x"/>
+						<MiningField name="y"/>
+					</MiningSchema>
+					<Node>
+						<True/>
+						<Node>
+							<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.09684860706329346"/>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1329190731048584"/>
+								<Node score="1" recordCount="105.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.12184661626815796"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="105.0"/>
+								</Node>
+								<Node score="1" recordCount="28.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.622514724731445"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="28.0"/>
+								</Node>
+								<Node score="1" recordCount="24.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.9669142961502075"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="24.0"/>
+								</Node>
+								<Node score="0" recordCount="6.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.043185196816921234"/>
+									<ScoreDistribution value="0" recordCount="6.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="4.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.0036673732101917267"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="4.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.0113718509674072"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="5.7724456787109375"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.19085311889648438"/>
+									<Node score="1" recordCount="10.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.5742059350013733"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="10.0"/>
+									</Node>
+									<Node score="0" recordCount="3.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.5414240956306458"/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.65252685546875"/>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8343603610992432"/>
+											<Node score="0" recordCount="1.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.2631527781486511"/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="3.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="8.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="8.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="2.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.4740641713142395"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="2.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.209559679031372"/>
+										<Node score="0" recordCount="2.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1899504661560059"/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="3.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.353448867797852"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.01893562264740467"/>
+										<Node score="1" recordCount="5.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.05635780096054077"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="5.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="8.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="8.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.07940986752510071"/>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8375039100646973"/>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.135871887207031"/>
+											<Node>
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6769627332687378"/>
+												<Node>
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2853021621704102"/>
+													<Node score="1" recordCount="1.0">
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.39820671081543"/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="1.0"/>
+													</Node>
+													<Node>
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.555379867553711"/>
+														<Node score="0" recordCount="4.0">
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.52828598022461"/>
+															<ScoreDistribution value="0" recordCount="4.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+														<Node score="1" recordCount="1.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="1.0"/>
+														</Node>
+													</Node>
+													<Node>
+														<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1913725137710571"/>
+														<Node score="0" recordCount="43.0">
+															<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.18980073928833"/>
+															<ScoreDistribution value="0" recordCount="43.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+														<Node score="1" recordCount="1.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="1.0"/>
+														</Node>
+													</Node>
+													<Node score="0" recordCount="158.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="158.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node score="0" recordCount="206.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3960719108581543"/>
+													<ScoreDistribution value="0" recordCount="206.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="0" recordCount="146.0">
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.94449520111084"/>
+													<ScoreDistribution value="0" recordCount="146.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.95070743560791"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+												<Node score="0" recordCount="2.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="2.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="2.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.691856861114502"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="2.0"/>
+											</Node>
+											<Node score="0" recordCount="18.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="18.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="7.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="7.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="4.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8614540100097656"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="4.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.06646178662776947"/>
+										<Node score="0" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.06601272523403168"/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="2.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.03547622635960579"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.05426216125488281"/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="2.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="3.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.08202941715717316"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="3.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.7305908203125"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="5.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.09295669198036194"/>
+									<ScoreDistribution value="0" recordCount="5.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="0" recordCount="2.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.87144660949707"/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+							</Node>
+							<Node score="0" recordCount="616.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="616.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+						</Node>
+						<Node score="0" recordCount="10.0">
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="5.745427131652832"/>
+							<ScoreDistribution value="0" recordCount="10.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.990524291992188"/>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.650880813598633"/>
+								<Node score="1" recordCount="223.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2538676261901855"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="223.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.22595512866973877"/>
+									<Node score="0" recordCount="3.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3543834686279297"/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="6.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.14138099551200867"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="6.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.610763549804688"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="198.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="198.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.674980163574219"/>
+								<Node score="0" recordCount="5.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.665924072265625"/>
+									<ScoreDistribution value="0" recordCount="5.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="2.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.668844223022461"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="2.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.470093011856079"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="7.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="7.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="77.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2385244369506836"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="77.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.43080413341522217"/>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.0303778648376465"/>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3116474151611328"/>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2784165143966675"/>
+											<Node score="0" recordCount="4.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.19654129445552826"/>
+												<ScoreDistribution value="0" recordCount="4.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="3.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="3.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4736855030059814"/>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.18224602937698364"/>
+											<Node score="0" recordCount="1.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4664255380630493"/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="2.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="2.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="6.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="6.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="31.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.910440444946289"/>
+										<ScoreDistribution value="0" recordCount="31.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.9495849609375"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="0" recordCount="2.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="2.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="2.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="76.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="76.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.21076172590255737"/>
+							<Node score="1" recordCount="28.0">
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.2091899812221527"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="28.0"/>
+							</Node>
+							<Node score="0" recordCount="1.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+						</Node>
+						<Node score="1" recordCount="374.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="0.0"/>
+							<ScoreDistribution value="1" recordCount="374.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="4">
+				<True/>
+				<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+					<MiningSchema>
+						<MiningField name="z"/>
+						<MiningField name="x"/>
+						<MiningField name="y"/>
+					</MiningSchema>
+					<Node>
+						<True/>
+						<Node>
+							<SimplePredicate field="double(z)" operator="lessOrEqual" value="5.787115573883057"/>
+							<Node score="0" recordCount="589.0">
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.8818559646606445"/>
+								<ScoreDistribution value="0" recordCount="589.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="0" recordCount="2.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="1.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.21540206670761108"/>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.00145149230957"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.1292562186717987"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.190104678273201"/>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.866507530212402"/>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-1.2641212940216064"/>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.986664295196533"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="2.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.3486998677253723"/>
+												<Node>
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.979825973510742"/>
+													<Node score="1" recordCount="11.0">
+														<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.5742059350013733"/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="11.0"/>
+													</Node>
+													<Node score="1" recordCount="9.0">
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.930278778076172"/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="9.0"/>
+													</Node>
+													<Node score="0" recordCount="1.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="1.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node score="1" recordCount="32.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="32.0"/>
+												</Node>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.741592407226562"/>
+												<Node score="1" recordCount="23.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3448783159255981"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="23.0"/>
+												</Node>
+												<Node score="1" recordCount="5.0">
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.998163223266602"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="5.0"/>
+												</Node>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.370513916015625"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="4.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="4.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.76891040802002"/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.1443747580051422"/>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.15889456868171692"/>
+											<Node score="0" recordCount="2.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.17790505290031433"/>
+												<ScoreDistribution value="0" recordCount="2.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.1703457534313202"/>
+												<Node score="1" recordCount="3.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.10200834274292"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="3.0"/>
+												</Node>
+												<Node score="0" recordCount="2.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="2.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="4.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="4.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.15126045048236847"/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.1492396593093872"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="5.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="5.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.07873626798391342"/>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1109148263931274"/>
+										<Node score="1" recordCount="33.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.9525441527366638"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="33.0"/>
+										</Node>
+										<Node score="0" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.027318192645907402"/>
+											<ScoreDistribution value="0" recordCount="3.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="3.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="3.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4585669040679932"/>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2227323055267334"/>
+											<Node>
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.018711090087890625"/>
+												<Node score="0" recordCount="57.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2087364196777344"/>
+													<ScoreDistribution value="0" recordCount="57.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="2.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.20926034450531"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="2.0"/>
+												</Node>
+												<Node score="0" recordCount="33.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="33.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="6.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.04400848597288132"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="6.0"/>
+											</Node>
+											<Node score="0" recordCount="10.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="10.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.056241989135742"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+										<Node score="0" recordCount="398.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="398.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.07110214233398438"/>
+										<Node score="1" recordCount="4.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4974111318588257"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="4.0"/>
+										</Node>
+										<Node score="1" recordCount="4.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.55335807800293"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="4.0"/>
+										</Node>
+										<Node score="0" recordCount="3.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="3.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.03038681112229824"/>
+										<Node score="0" recordCount="23.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8486557006835938"/>
+											<ScoreDistribution value="0" recordCount="23.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="1.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="8.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8505268096923828"/>
+										<ScoreDistribution value="0" recordCount="8.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.876572608947754"/>
+										<Node score="1" recordCount="2.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.059276729822158813"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="2.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="26.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.562713623046875"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="26.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.15170952677726746"/>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.301992416381836"/>
+										<Node score="1" recordCount="5.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.511037290096283"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="5.0"/>
+										</Node>
+										<Node score="1" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.11376342922449112"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="3.0"/>
+										</Node>
+										<Node score="0" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="2.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.815948724746704"/>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.14572197198867798"/>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.756860733032227"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node score="0" recordCount="6.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.894574165344238"/>
+												<ScoreDistribution value="0" recordCount="6.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="2.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.09804610908031464"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="2.0"/>
+											</Node>
+											<Node score="0" recordCount="3.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="3.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="9.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="9.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="0" recordCount="5.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.15792159736156464"/>
+									<ScoreDistribution value="0" recordCount="5.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.9053174257278442"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.861828327178955"/>
+									<Node score="0" recordCount="5.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.19848725199699402"/>
+										<ScoreDistribution value="0" recordCount="5.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="0" recordCount="5.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.932744979858398"/>
+										<ScoreDistribution value="0" recordCount="5.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node score="0" recordCount="2.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.17625847458839417"/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+								<Node score="1" recordCount="2.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.785750389099121"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="2.0"/>
+								</Node>
+								<Node score="0" recordCount="2.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="2.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.3012440204620361"/>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.3521728515625"/>
+									<Node score="1" recordCount="27.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.330467224121094"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="27.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="70.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="70.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.140737533569336"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.0946032702922821"/>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4156062602996826"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="5.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="5.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="1.0">
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.084903717041016"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="1.0"/>
+								</Node>
+								<Node score="0" recordCount="5.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="5.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.266475677490234"/>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.592987298965454"/>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.214234352111816"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="6.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="6.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="34.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="34.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4093942642211914"/>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.2239343225955963"/>
+								<Node score="1" recordCount="7.0">
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.22049148380756378"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="7.0"/>
+								</Node>
+								<Node score="0" recordCount="1.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="0.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="582.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="582.0"/>
+							</Node>
+						</Node>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.0017123222351074"/>
+							<Node score="0" recordCount="1.0">
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4117891788482666"/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+							<Node score="1" recordCount="62.0">
+								<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.593101501464844"/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="62.0"/>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.9961738586425781"/>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.756786346435547"/>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.578467607498169"/>
+										<Node score="0" recordCount="3.0">
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.5431455373764038"/>
+											<ScoreDistribution value="0" recordCount="3.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="5.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="5.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="10.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8771713972091675"/>
+										<ScoreDistribution value="0" recordCount="10.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.934502124786377"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.9570302963256836"/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node score="1" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="1.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.940677642822266"/>
+									<Node score="0" recordCount="2.0">
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.33612602949142456"/>
+										<ScoreDistribution value="0" recordCount="2.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+									<Node>
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6378939151763916"/>
+										<Node score="1" recordCount="13.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.6346008777618408"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="13.0"/>
+										</Node>
+										<Node score="0" recordCount="1.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="1.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="19.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="19.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="67.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="67.0"/>
+								</Node>
+							</Node>
+							<Node score="0" recordCount="1.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="1.0"/>
+								<ScoreDistribution value="1" recordCount="0.0"/>
+							</Node>
+						</Node>
+						<Node score="1" recordCount="199.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="0.0"/>
+							<ScoreDistribution value="1" recordCount="199.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+			<Segment id="5">
+				<True/>
+				<TreeModel functionName="classification" missingValueStrategy="nullPrediction" splitCharacteristic="multiSplit">
+					<MiningSchema>
+						<MiningField name="z"/>
+						<MiningField name="x"/>
+						<MiningField name="y"/>
+					</MiningSchema>
+					<Node>
+						<True/>
+						<Node>
+							<SimplePredicate field="double(y)" operator="lessOrEqual" value="6.3643903732299805"/>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1613599061965942"/>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.957592964172363"/>
+									<Node>
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.941726684570312"/>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.764120101928711"/>
+											<Node score="1" recordCount="243.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="0.985700249671936"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="243.0"/>
+											</Node>
+											<Node score="1" recordCount="44.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.624011993408203"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="44.0"/>
+											</Node>
+											<Node score="0" recordCount="1.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.0210267305374146"/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="6.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="6.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="43.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1006611585617065"/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="43.0"/>
+										</Node>
+										<Node score="0" recordCount="6.0">
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1524534225463867"/>
+											<ScoreDistribution value="0" recordCount="6.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="4.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="4.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="3.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="3.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.11069481074810028"/>
+									<Node score="1" recordCount="54.0">
+										<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.038016438484192"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="54.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="284.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="284.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.270487517118454"/>
+								<Node>
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.958078145980835"/>
+									<Node>
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.126741409301758"/>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.50261402130127"/>
+											<Node score="1" recordCount="8.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.730070114135742"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="8.0"/>
+											</Node>
+											<Node score="1" recordCount="6.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2103081941604614"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="6.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.6722520589828491"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.444459915161133"/>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.2146536111831665"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4317725896835327"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="4.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8238822221755981"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="4.0"/>
+												</Node>
+												<Node score="0" recordCount="3.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8299446105957031"/>
+													<ScoreDistribution value="0" recordCount="3.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+												<Node score="1" recordCount="1.0">
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.870210886001587"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+												<Node score="0" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.23867866396903992"/>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.705217361450195"/>
+												<Node>
+													<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.65252685546875"/>
+													<Node score="0" recordCount="1.0">
+														<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.2637515068054199"/>
+														<ScoreDistribution value="0" recordCount="1.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+													<Node score="1" recordCount="2.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="2.0"/>
+													</Node>
+												</Node>
+												<Node score="0" recordCount="2.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="2.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="5.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="5.0"/>
+											</Node>
+										</Node>
+										<Node>
+											<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.8958076238632202"/>
+											<Node>
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.25296950340271"/>
+												<Node>
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.251322865486145"/>
+													<Node>
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.949809074401855"/>
+														<Node>
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.765767097473145"/>
+															<Node>
+																<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.1909234523773193"/>
+																<Node score="0" recordCount="1.0">
+																	<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.018711090087890625"/>
+																	<ScoreDistribution value="0" recordCount="1.0"/>
+																	<ScoreDistribution value="1" recordCount="0.0"/>
+																</Node>
+																<Node score="1" recordCount="4.0">
+																	<True/>
+																	<ScoreDistribution value="0" recordCount="0.0"/>
+																	<ScoreDistribution value="1" recordCount="4.0"/>
+																</Node>
+															</Node>
+															<Node score="0" recordCount="6.0">
+																<True/>
+																<ScoreDistribution value="0" recordCount="6.0"/>
+																<ScoreDistribution value="1" recordCount="0.0"/>
+															</Node>
+														</Node>
+														<Node score="0" recordCount="122.0">
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.89083194732666"/>
+															<ScoreDistribution value="0" recordCount="122.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+														<Node score="0" recordCount="12.0">
+															<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.011526031419634819"/>
+															<ScoreDistribution value="0" recordCount="12.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+														<Node score="1" recordCount="1.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="1.0"/>
+														</Node>
+													</Node>
+													<Node>
+														<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.018291473388672"/>
+														<Node>
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.98491096496582"/>
+															<Node score="0" recordCount="1.0">
+																<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.193692684173584"/>
+																<ScoreDistribution value="0" recordCount="1.0"/>
+																<ScoreDistribution value="1" recordCount="0.0"/>
+															</Node>
+															<Node score="1" recordCount="1.0">
+																<True/>
+																<ScoreDistribution value="0" recordCount="0.0"/>
+																<ScoreDistribution value="1" recordCount="1.0"/>
+															</Node>
+														</Node>
+														<Node score="1" recordCount="2.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="0.0"/>
+															<ScoreDistribution value="1" recordCount="2.0"/>
+														</Node>
+													</Node>
+													<Node score="0" recordCount="2.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="2.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node score="1" recordCount="3.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="3.0"/>
+												</Node>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.923538208007812"/>
+												<Node>
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4620845317840576"/>
+													<Node>
+														<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2856016159057617"/>
+														<Node>
+															<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.77841567993164"/>
+															<Node score="0" recordCount="15.0">
+																<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.2848531007766724"/>
+																<ScoreDistribution value="0" recordCount="15.0"/>
+																<ScoreDistribution value="1" recordCount="0.0"/>
+															</Node>
+															<Node score="1" recordCount="1.0">
+																<True/>
+																<ScoreDistribution value="0" recordCount="0.0"/>
+																<ScoreDistribution value="1" recordCount="1.0"/>
+															</Node>
+														</Node>
+														<Node score="0" recordCount="28.0">
+															<True/>
+															<ScoreDistribution value="0" recordCount="28.0"/>
+															<ScoreDistribution value="1" recordCount="0.0"/>
+														</Node>
+													</Node>
+													<Node score="0" recordCount="310.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="310.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+												</Node>
+												<Node>
+													<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.5361056327819824"/>
+													<Node score="0" recordCount="5.0">
+														<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.06661148369312286"/>
+														<ScoreDistribution value="0" recordCount="5.0"/>
+														<ScoreDistribution value="1" recordCount="0.0"/>
+													</Node>
+													<Node score="1" recordCount="3.0">
+														<True/>
+														<ScoreDistribution value="0" recordCount="0.0"/>
+														<ScoreDistribution value="1" recordCount="3.0"/>
+													</Node>
+												</Node>
+												<Node score="0" recordCount="52.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="52.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.93319320678711"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node>
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.950632095336914"/>
+												<Node score="1" recordCount="1.0">
+													<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.08382569253444672"/>
+													<ScoreDistribution value="0" recordCount="0.0"/>
+													<ScoreDistribution value="1" recordCount="1.0"/>
+												</Node>
+												<Node score="0" recordCount="1.0">
+													<True/>
+													<ScoreDistribution value="0" recordCount="1.0"/>
+													<ScoreDistribution value="1" recordCount="0.0"/>
+												</Node>
+											</Node>
+											<Node score="0" recordCount="4.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.002874374389648"/>
+												<ScoreDistribution value="0" recordCount="4.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="0" recordCount="2.0">
+												<SimplePredicate field="double(x)" operator="lessOrEqual" value="-0.12888199090957642"/>
+												<ScoreDistribution value="0" recordCount="2.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.029369354248047"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node score="0" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.0560884475708"/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+											<Node score="1" recordCount="1.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="10.090890884399414"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="1.0"/>
+											</Node>
+											<Node score="0" recordCount="1.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="1.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="0" recordCount="4.0">
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.695188522338867"/>
+											<ScoreDistribution value="0" recordCount="4.0"/>
+											<ScoreDistribution value="1" recordCount="0.0"/>
+										</Node>
+										<Node score="1" recordCount="2.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="2.0"/>
+										</Node>
+									</Node>
+									<Node score="1" recordCount="44.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="44.0"/>
+									</Node>
+								</Node>
+								<Node>
+									<SimplePredicate field="double(z)" operator="lessOrEqual" value="8.011639595031738"/>
+									<Node score="1" recordCount="3.0">
+										<SimplePredicate field="double(z)" operator="lessOrEqual" value="7.563621520996094"/>
+										<ScoreDistribution value="0" recordCount="0.0"/>
+										<ScoreDistribution value="1" recordCount="3.0"/>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="28.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="28.0"/>
+								</Node>
+							</Node>
+							<Node>
+								<SimplePredicate field="double(y)" operator="lessOrEqual" value="2.002540111541748"/>
+								<Node>
+									<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.4739145040512085"/>
+									<Node>
+										<SimplePredicate field="double(x)" operator="lessOrEqual" value="0.47092071175575256"/>
+										<Node>
+											<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.901908874511719"/>
+											<Node score="1" recordCount="6.0">
+												<SimplePredicate field="double(z)" operator="lessOrEqual" value="9.64002799987793"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="6.0"/>
+											</Node>
+											<Node score="1" recordCount="2.0">
+												<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.4651532173156738"/>
+												<ScoreDistribution value="0" recordCount="0.0"/>
+												<ScoreDistribution value="1" recordCount="2.0"/>
+											</Node>
+											<Node score="0" recordCount="4.0">
+												<True/>
+												<ScoreDistribution value="0" recordCount="4.0"/>
+												<ScoreDistribution value="1" recordCount="0.0"/>
+											</Node>
+										</Node>
+										<Node score="1" recordCount="13.0">
+											<True/>
+											<ScoreDistribution value="0" recordCount="0.0"/>
+											<ScoreDistribution value="1" recordCount="13.0"/>
+										</Node>
+									</Node>
+									<Node score="0" recordCount="1.0">
+										<True/>
+										<ScoreDistribution value="0" recordCount="1.0"/>
+										<ScoreDistribution value="1" recordCount="0.0"/>
+									</Node>
+								</Node>
+								<Node score="1" recordCount="266.0">
+									<SimplePredicate field="double(y)" operator="lessOrEqual" value="1.9991722106933594"/>
+									<ScoreDistribution value="0" recordCount="0.0"/>
+									<ScoreDistribution value="1" recordCount="266.0"/>
+								</Node>
+								<Node score="1" recordCount="4.0">
+									<True/>
+									<ScoreDistribution value="0" recordCount="1.0"/>
+									<ScoreDistribution value="1" recordCount="3.0"/>
+								</Node>
+							</Node>
+							<Node score="1" recordCount="213.0">
+								<True/>
+								<ScoreDistribution value="0" recordCount="0.0"/>
+								<ScoreDistribution value="1" recordCount="213.0"/>
+							</Node>
+						</Node>
+						<Node score="0" recordCount="609.0">
+							<True/>
+							<ScoreDistribution value="0" recordCount="609.0"/>
+							<ScoreDistribution value="1" recordCount="0.0"/>
+						</Node>
+					</Node>
+				</TreeModel>
+			</Segment>
+		</Segmentation>
+	</MiningModel>
+</PMML>

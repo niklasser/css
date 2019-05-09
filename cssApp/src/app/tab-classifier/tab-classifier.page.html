@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Classify Context</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="overlay">
+    <div id="text">
+      <h1>Don't walk and look on your phone!</h1>
+    </div>
+  </div>
+  <div class="ion-padding" id="test" >
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Connect to OpenScoring Server</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="primary">IP</ion-label>
+        <ion-input [(ngModel)]="os_ip" placeholder="127.0.0.1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Port</ion-label>
+        <ion-input [(ngModel)]="os_port" placeholder="8080"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)=connectServer()>Connect to Server</ion-button>
+
+    </ion-list>
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Sense Context</ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="primary">Select Model</ion-label>
+        <ion-select [(ngModel)]="model_selected" placeholder="Select Model" (ionChange)="modelChange()">
+          <ion-select-option *ngFor="let model of models">{{model.id}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="primary">Select Window</ion-label>
+        <ion-input [(ngModel)]="window" type="number" placeholder="Window size" min=1 max=10000></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)=startSensing()>{{textButtonSensing}}</ion-button>
+    </ion-list>
+
+    <ion-list *ngIf="model_selected">
+      <ion-list-header>
+        <ion-label>Loaded Labels</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let label of labels">
+        <ion-label color="primary">{{label.name}}</ion-label>
+        <ion-badge color="success">{{label.value}}</ion-badge>
+        <ion-select placeholder="Action" (ionChange)="labelChange(label, $event)">
+          <ion-select-option value="blockscreen">Block Screen</ion-select-option>
+          <ion-select-option value="changefont">Change Background</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  </ion-content>
